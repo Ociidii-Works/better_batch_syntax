@@ -13,7 +13,7 @@ Current work:
 [![Preview][3]][3]
 
 __Note__
-: This file was tested in [Sublime Text 2][2] and [Sublime Text 3][8].
+: This file was tested in [Sublime Text 2][1] and [Sublime Text 3][2].
 
 [1]: http://www.sublimetext.com/2
 [2]: http://sublimetext.com/3
