@@ -10,7 +10,7 @@
                 <key>name</key>
                 <string>keyword.command.dosbatch</string>
                 <key>match</key>
-                <string>\b(?i)(?:append|assoc|at|attrib|break|cacls|cd|chcp|chdir|chkdsk|chkntfs|cls|cmd|color|comp|compact|convert|copy|date|del|dir|diskcomp|diskcopy|doskey|echo|endlocal|erase|fc|find|findstr|format|ftype|graftabl|help|keyb|label|md|mkdir|mode|more|move|path|pause|popd|print|prompt|pushd|rd|recover|rem|ren|rename|replace|restore|rmdir|set|setlocal|shift|sort|start|subst|time|title|tree|type|ver|verify|vol|xcopy)\b</string>
+                <string>\b(?i)(?:append|assoc|at|attrib|break|cacls|cd|chcp|chdir|chkdsk|chkntfs|cls|cmd|cmdextversion|color|comp|compact|convert|copy|date|defined|del|dir|diskcomp|diskcopy|doskey|echo|endlocal|erase|errorlevel|exist|fc|find|findstr|format|ftype|graftabl|help|keyb|label|md|mkdir|mklink|mode|more|move|nul|path|pause|popd|print|prompt|pushd|rd|recover|rem|ren|rename|replace|restore|rmdir|set|setlocal|shift|sort|start|subst|time|title|tree|type|ver|verify|vol|xcopy)\b</string>
             </dict>
             <dict>
                 <key>name</key>
@@ -20,27 +20,33 @@
             </dict>
             <dict>
                 <key>name</key>
-                <string>keyword.control.conditional.if.dosbatch</string>
-                <key>match</key>
-                <string>\b(?i)if\s+((not)\s+)(exist|defined|errorlevel|cmdextversion)\b</string>
-            </dict>
-            <dict>
-                <key>name</key>
                 <string>keyword.control.conditional.dosbatch</string>
                 <key>match</key>
-                <string>\b(?i)(?:if|else)\b</string>
+                <string>\b(?i)(?:if|else|not)\b</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>keyword.control.repeat.dosbatch</string>
                 <key>match</key>
-                <string>\b(?i)for\b</string>
+                <string>\b(?i)(?:for|in|do)\b</string>
             </dict>
             <dict>
                 <key>name</key>
                 <string>keyword.operator.dosbatch</string>
                 <key>match</key>
-                <string>\b(?:EQU|NEQ|LSS|LEQ|GTR|GEQ)\b</string>
+                <string>\b(?i)(?:equ|neq|lss|leq|gtr|geq)\b</string>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>variable.language.dosbatch</string>
+                <key>match</key>
+                <string>("?)((?&lt;!\^)[%!][\d\*]|((?&lt;!\^)[%!]){2}[A-Za-z\d]|((?&lt;!\^)[%!]){1,2}~[A-Za-z_\d]+|(?&lt;!\^)[%!][A-Za-z_\d]+(?&lt;!\^)[%!])("?)</string>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>variable.language.dosbatch</string>
+                <key>match</key>
+                <string>\d*</string>
             </dict>
             <dict>
                 <key>captures</key>
@@ -54,7 +60,7 @@
                 <key>name</key>
                 <string>comment.line.rem.dosbatch</string>
                 <key>match</key>
-                <string>(?:^|\s)((?i)rem)(?:$|\s.*$)</string>
+                <string>(?:^|\s)@?(?i)(?:rem)(?:$|\s.*$)</string>
             </dict>
             <dict>
                 <key>name</key>
@@ -98,36 +104,6 @@
                 <key>match</key>
                 <string>&amp;&gt;|\d*&gt;&amp;\d*|\d*(&gt;&gt;|&gt;|&lt;)|\d*&lt;&amp;|\d*&lt;&gt;</string>
             </dict>
-            <dict>
-                <key>begin</key>
-                <string>"</string>
-                <key>endCaptures</key>
-                <dict>
-                    <key>0</key>
-                    <dict>
-                        <key>name</key>
-                        <string>punctuation.definition.variable.end.shell</string>
-                    </dict>
-                </dict>
-                <key>beginCaptures</key>
-                <dict>
-                    <key>0</key>
-                    <dict>
-                        <key>name</key>
-                        <string>punctuation.definition.variable.begin.shell</string>
-                    </dict>
-                </dict>
-                <key>name</key>
-                <string>variable.language.dosbatch</string>
-                <key>end</key>
-                <string>"</string>
-            </dict>
-            <dict>
-                <key>name</key>
-                <string>variable.language.dosbatch</string>
-                <key>end</key>
-                <string>%</string>
-            </dict>
         </array>
         <key>name</key>
         <string>Batch File</string>
@@ -136,6 +112,7 @@
         <key>fileTypes</key>
         <array>
             <string>bat</string>
+            <string>cmd</string>
         </array>
     </dict>
 </plist>
