@@ -10,7 +10,7 @@ Current work:
 + more commands/keywords
 + fixed wrong regular expression for some stock highlighting.
 
-[![Preview][2]][2]
+[![Preview][3]][3]
 
 __Note__
 : This file was tested in [Sublime Text 2][2] and [Sublime Text 3][8].
